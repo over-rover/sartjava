@@ -10,7 +10,7 @@ public class Cycle {
 		// все числа от [6, -6] (шаг итерации равен 2)
 		int startPoint = 6, endPoint = -6, iteration = 2;
 		int i = startPoint;
-		while (i >= -6) {
+		while (i >= endPoint) {
 			System.out.print(i + "\t");
 			i -= iteration;
 		}

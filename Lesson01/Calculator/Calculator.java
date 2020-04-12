@@ -31,10 +31,10 @@ public class Calculator {
 			System.out.println("Остаток от деления чисел a и b равно " + (int)result);
 		} else if (operator == '^') {
 			result = 1;
-				for (int i = 0; i < b; i++) {
-					result *= a; // java сам приводит int к double
-				}
-				System.out.println("Число a в степени b " + (int)result);
+			for (int i = 0; i < b; i++) {
+				result *= a; // java сам приводит int к double
+			}
+			System.out.println("Число a в степени b " + (int)result);
 		} else {
 			System.out.println("Некорректная операция: " + operator);
 		}

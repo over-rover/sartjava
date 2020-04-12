@@ -17,8 +17,7 @@ public class ConditionalStatement {
         double hight = 1.92;
         if (hight < 1.8) {
         	System.out.println("Рост объекта не превышает допустимых норм");
-        }  
-        else {
+        } else {
         	System.out.println("Рост объекта превышает допустимую норму");
         }      
 
