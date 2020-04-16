@@ -36,15 +36,9 @@ public class Jaeger {
 		return kaijuKilled;
 	}
 
-	void generalInfo() {
-	System.out.println("Модель: " + modelName + "\tМасса: " + weight + "\tСкорость: " + speed +
-		"\tУничтожено Кайдзю: " + kaijuKilled);	
-	}
-
-	// видимо, переопределяю метод toString Java класса Object в классе Jaeger
-	public String toString () {
-	return "Модель: " + modelName + "\tМасса: " + weight + "\tСкорость: " + speed + 
+	// переопределяем метод toString Java класса Object
+	public String toString() {
+		return "Модель: " + modelName + "\tМасса: " + weight + "\tСкорость: " + speed + 
 		"\tУничтожено Кайдзю: " + kaijuKilled;	
 	}
-	
 }	

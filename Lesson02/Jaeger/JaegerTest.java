@@ -14,8 +14,17 @@ public class JaegerTest {
 		robot2.setKaijuKilled(11);
 
 		System.out.println("Сводная информация по роботам:");
-		robot1.generalInfo();
-		robot2.generalInfo();
+		/*
+		System.out.println(robot1.toString()); выводит такое сообщение: Jaeger@15db9742
+		"Но когда мы пытаемся вывести информацию об объекте, мы отображаем данные из 
+		classname@HashCode_in_Hexadeciaml_form. 
+		Если нужна соответствующая информация об объекте класса Jaeger, тогда нужно 
+		переопределить метод toString Java класса Object в классе Jaeger"
+		
+		Тупо, как обезьяна, переопределяю (см. класс Jaeger), не особо понимая, что там происходит.
+		*/
+		System.out.println(robot1);
+		System.out.println(robot2);
 
 		// в результате боя робот1 уничтожил 3 Кайдзю
 		robot1.setKaijuKilled(robot1.getKaijuKilled()+3);
@@ -23,23 +32,8 @@ public class JaegerTest {
 		System.out.println("\n"+robot1.getModelName() + " уничтожил суммарно " + 
 			robot1.getKaijuKilled() + " Кайдзю");
 
-		
 		System.out.println("Обновленная информация по роботам:");
-/*
-		System.out.println(robot1.toString()); выводит такое сообщение: Jaeger@15db9742
-		"Но когда мы пытаемся вывести информацию об объекте, мы отображаем данные из 
-		classname@HashCode_in_Hexadeciaml_form (хз что это). 
-		Если нужна соответствующая информация об объекте класса Jaeger, тогда нужно 
-		переопределить метод toString Java класса Object в классе Jaeger"
-		
-		Тупо, как обезьяна, переопределяю (см. класс Jaeger), не особо понимая, что там происходит.
-*/
-		System.out.println(robot1.toString()); // работает
-		System.out.println(robot2);  // тоже работает. toString() по умолчанию вызывается что ли?
-
-/* 
-		Разница между robot1.generalInfo() и System.out.println(robot2) на мой взгляд несущественна
-		В чем же преимущество переопределения? Просто так принято?
-*/
+		System.out.println(robot1);
+		System.out.println(robot2);
 	}
 }

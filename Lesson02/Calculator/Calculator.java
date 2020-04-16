@@ -1,6 +1,5 @@
 
 public class Calculator {
-	double result;
 
 	void calculate(int a, char operator, int b) {
 		switch(operator) {
@@ -15,8 +14,8 @@ public class Calculator {
 				break;
 			case '/':
 				if (b != 0) {
-					result = (double) a / b; // Без явного приведения операция совершается как int
-					System.out.println("Частное чисел a и b равно " + result);
+					System.out.println("Частное чисел a и b равно " + (double) a / b);
+					// Без явного приведения операция совершается как int
 				} else {
 					System.out.println("Некорретный ввод. b не должно быть равным 0 ");
 				}
