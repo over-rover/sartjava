@@ -45,44 +45,43 @@ public class GuessNumberTest {
 		// Задаем количество игроков. Игроки вводят имена с консоли
 		int totalPlayers = 2;
 
-		Player[] player = new Player[totalPlayers];
+		Player[] players = new Player[totalPlayers];
 		Scanner sc = new Scanner(System.in);
 		for (int i = 0; i < totalPlayers; i++) {
-			System.out.print("Введите имя игрока №" + (i+1) +": ");
-			player[i] = new Player(sc.next());
+			System.out.print("Введите имя игрока №" + (i + 1) +": ");
+			players[i] = new Player(sc.next());
 		}
 
 		// запускаем игру. 
 		// Получается матрешка из трех циклов
 		// Большой цикл - из него выходим, если какой-то игрок отказался играть (choice == 'n')
 		// Средний цикл - после каждой игры проверяем желание игроков поиграть ещё. Если все
-		// хотят продолжить - то играем, если кто-то отказался, то choice == 'n' видится
-		// в большом цикле и программа завершается.
+		// хотят продолжить - то играем. Первый же отказ влечет выход из среднего (желание других
+		// не проверяется) и большого цикла (игра заканчивается).
 		// Малый цикл - проверка корректности ввода [y/n]
 		char choice = 'y'; // желание продолжить игру [y/n]
 		int i;
 
 		do {
-			GuessNumber game = new GuessNumber(rangeBegin, rangeEnd, totalPlayers, player);
-			// имеет ли смысл объявить перменнную game за циклом? Для экономии ресурсов или
-			// увеличения быстродействия?
+			// Загадываем случайное число в заданном отрезке
+			GuessNumber game = new GuessNumber(rangeBegin, rangeEnd);
 
+			// Играем
+			game.playGame(players);
 			System.out.println("Уважаемые игроки, можно повторить игру... хотите? [y/n]");
 			
 			// проверяем желание каждого игрока повторить игру. При первом же отрицательном
 			// ответе завершаем программу.
 			i = 0;
 			while (choice == 'y' && i < totalPlayers) {
-				System.out.print(player[i].getName() + "?\t");	
+				System.out.print(players[i].getName() + "?\t");	
 				choice = sc.next().charAt(0);
 				while (choice != 'y' && choice != 'n') {
-					System.out.println(player[i].getName() + " !!!Ошибка!!! Используйте [y/n]: ");
+					System.out.println(players[i].getName() + " !!!Ошибка!!! Используйте [y/n]: ");
 					choice = sc.next().charAt(0);
 				}
-
 				i++;
 			}
-
 		} while (choice == 'y');		
 
 		System.out.println("Игра окончена");
