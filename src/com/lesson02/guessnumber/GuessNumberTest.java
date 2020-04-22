@@ -33,7 +33,7 @@
 /*	Примечания
 	Для решения использован массив и циклы, поэтому количество игроков не ограничено.
 */
-
+package com.lesson02.guessnumber;
 import java.util.Scanner;
 
 public class GuessNumberTest {

@@ -6,6 +6,7 @@
 
 Ввод с клавиатуры и методы класса Math или Random пока не используйте
 */
+package com.lesson01.calculator;
 public class Calculator {
 	public static void main(String[] args) {
 		//  Задаем два числа и указываем тип математической операции

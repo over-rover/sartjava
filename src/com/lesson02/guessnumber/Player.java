@@ -1,3 +1,4 @@
+package com.lesson02.guessnumber;
 public class Player {
 	private String name;
 	private int number;

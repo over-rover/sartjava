@@ -1,3 +1,4 @@
+package com.lesson02.wolf;
 public class WolfTest {
 	public static void main(String[] args) {
 		Wolf myWolf = new Wolf();

@@ -1,4 +1,4 @@
-
+package com.lesson02.calculator;
 public class Calculator {
 
 	void calculate(int a, char operator, int b) {

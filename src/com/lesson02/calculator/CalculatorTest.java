@@ -8,6 +8,7 @@
 Если пользователь ввел ни "да" ни "нет", а что-то другое — снова выведите сообщение 
 "Хотите продолжить? [да/нет]:". (Реализуйте эту логику в Test-классах)
 */
+package com.lesson02.calculator;
 import java.util.Scanner;
 
 public class CalculatorTest {

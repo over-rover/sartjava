@@ -1,3 +1,4 @@
+package com.lesson02.jaeger;
 public class JaegerTest {
 	public static void main(String[] args) {
 		Jaeger robot1 = new Jaeger();

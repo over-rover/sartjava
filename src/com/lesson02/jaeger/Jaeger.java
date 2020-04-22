@@ -1,3 +1,4 @@
+package com.lesson02.jaeger;
 public class Jaeger {
 	private String modelName;
 	private double weight;

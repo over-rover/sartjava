@@ -1,3 +1,4 @@
+package com.lesson02.wolf;
 public class Wolf {
 	String name;
 	int age;

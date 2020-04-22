@@ -1,3 +1,4 @@
+package com.lesson02.person;
 public class Person {
 	String name = "Иван";
 	String familyName = "Иванов";
@@ -7,11 +8,11 @@ public class Person {
 	double weight = 81.4;
 
 	void go() {
-		System.out.println("Method go")
+		System.out.println("Method go");
 	}
 
 	void run() {
-		System.out.println("Method run")
+		System.out.println("Method run");
 	}
 
 	String sit() {

@@ -1,3 +1,4 @@
+package com.lesson01.cycle;
 public class Cycle {
 	public static void main(String[] args) {
 		// задача: вывести числа в отрезке 0:20 с помощью цикла for
