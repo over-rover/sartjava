@@ -3,7 +3,7 @@ public class Person {
 	String name = "Иван";
 	String familyName = "Иванов";
 	int age = 20;
-	Sting gender = "Мужской";
+	String gender = "Мужской";
 	double hight = 1.75;
 	double weight = 81.4;
 
@@ -20,7 +20,7 @@ public class Person {
 	}
 
 	boolean speak() {
-		return;
+		return true;
 	}
 	
 	String studyJava() {
