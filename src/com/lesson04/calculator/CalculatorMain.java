@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class CalculatorMain {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Scanner scExpr = new Scanner(System.in);
+        //Scanner scExpr = new Scanner(System.in);  Пробуем убрать второй сканер и наблюдаем ошибку
         int expressionMaxNumber = 6; // максимальное количество хранимых итераций
 
         /*Объявляем массив объектов.
@@ -26,7 +26,8 @@ public class CalculatorMain {
         do {
             System.out.println("Введите выражение вида: a + b Допускаются операции +, -, *, /, ^, %");
             myCalcs[i] = new Calculator();
-            myCalcs[i].setData(scExpr.nextLine()); // Вводим с консоли и отдаем в метод - сетер.
+            //myCalcs[i].setData(scExpr.nextLine()); // Вводим с консоли и отдаем в метод - сетер.
+            myCalcs[i].setData(sc.nextLine()); // Вариант с одним сканером
             /* примечание к строке выше
             Пришлось создавать и использовать scExpr, так как обойтись только лишь sc не получилось.
             Если передавать sc.nextLine(), то на второй интерации не дает ввести выражение, а сразу
@@ -39,11 +40,11 @@ public class CalculatorMain {
 
             myCalcs[i].calculate(); // сохраняет результат в переменную и выводит на экран
 
-            System.out.println("Хотите продолжить? [y/n]: ");
+            System.out.println("Хотите продолжить? [д/н]: ");
             choice = sc.next();
 
-            while (!choice.equals("y") && !choice.equals("n")) {
-                System.out.println("!!!Ошибка при вводе!!! Попробуйте еще раз [y/n]: ");
+            while (!choice.equals("д") && !choice.equals("н")) {
+                System.out.println("!!!Ошибка при вводе!!! Попробуйте еще раз [д/н]: ");
                 choice = sc.next();
             }
             if (i == expressionMaxNumber - 1) {
@@ -51,7 +52,7 @@ public class CalculatorMain {
             } else {
                 i++;
             }
-        } while (choice.equals("y"));
+        } while (choice.equals("д"));
 
         // Отрабатываю переопределение toString и использование for each
         System.out.println("История ваших операций (" + expressionMaxNumber + " последних:");
