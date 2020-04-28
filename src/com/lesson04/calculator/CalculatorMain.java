@@ -13,53 +13,30 @@ import java.util.Scanner;
 
 public class CalculatorMain {
     public static void main(String[] args) {
+        int expressionMaxNumber = 5; // величина массива для хранения результатов матем. операций
+        Calculator myCalc = new Calculator(expressionMaxNumber);
         Scanner sc = new Scanner(System.in);
-        //Scanner scExpr = new Scanner(System.in);  Пробуем убрать второй сканер и наблюдаем ошибку
-        int expressionMaxNumber = 6; // максимальное количество хранимых итераций
-
-        /*Объявляем массив объектов.
-        * Каждый объект будет содержать набор исходных данных и результат вычислений.*/
-        Calculator[] myCalcs = new Calculator[expressionMaxNumber];
-
         String choice;
-        int i = 0;
+
         do {
             System.out.println("Введите выражение вида: a + b Допускаются операции +, -, *, /, ^, %");
-            myCalcs[i] = new Calculator();
-            //myCalcs[i].setData(scExpr.nextLine()); // Вводим с консоли и отдаем в метод - сетер.
-            myCalcs[i].setData(sc.nextLine()); // Вариант с одним сканером
-            /* примечание к строке выше
-            Пришлось создавать и использовать scExpr, так как обойтись только лишь sc не получилось.
-            Если передавать sc.nextLine(), то на второй интерации не дает ввести выражение, а сразу
-            передает в метод строку "y" - решение пользователя о желании продолжить.
-            myCalcs[i].setData(sc.nextLine()) - ввели выражение, посчитали результат.
-            далее choice = sc.next() - ввели "у" - хотим продолжить вычисления.
-            далее myCalcs[i].setData(sc.nextLine()) - не ждет ввода с консоли, а передает "у" в метод
-            Поясни, пожалуйста.
-            */
+            myCalc.setData(sc.nextLine());
+            myCalc.calculate(); // вычисляем результат, записываем его в массив
 
-            myCalcs[i].calculate(); // сохраняет результат в переменную и выводит на экран
+            System.out.println("Хотите продолжить? [да/нет]: ");
+            choice = sc.nextLine();
 
-            System.out.println("Хотите продолжить? [д/н]: ");
-            choice = sc.next();
-
-            while (!choice.equals("д") && !choice.equals("н")) {
-                System.out.println("!!!Ошибка при вводе!!! Попробуйте еще раз [д/н]: ");
-                choice = sc.next();
+            while (!choice.equals("да") && !choice.equals("нет")) {
+                System.out.println("!!!Ошибка при вводе!!! Попробуйте еще раз [да/нет]: ");
+                choice = sc.nextLine();
             }
-            if (i == expressionMaxNumber - 1) {
-                i = 0;
-            } else {
-                i++;
-            }
-        } while (choice.equals("д"));
 
-        // Отрабатываю переопределение toString и использование for each
-        System.out.println("История ваших операций (" + expressionMaxNumber + " последних:");
-        for (Calculator var : myCalcs) {
-            System.out.println(var);
+        } while (choice.equals("да"));
+
+        System.out.println("Значения математических выражений:");
+        for (int i = 0; i < expressionMaxNumber; i++) {
+            System.out.print(myCalc.showResult(i) + " ");
         }
-        System.out.println("Программа окончена.");
+        System.out.println("\nПрограмма окончена.");
     }
 }
-
