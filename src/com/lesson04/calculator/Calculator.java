@@ -13,7 +13,7 @@ public class Calculator {
 
     /* Обрабатываем строку - раскладываем ее на части и инициализиируем поля.
        Проверку на корректность ввода не осуществляем - не требуется в рамках данной задачи.*/
-    public void setExpression (String expression) {
+    public void setExpression(String expression) {
         // Разбиваем строку по пробелам, сохраняем в виде массива из 3 элементов.
         String[] splitExpression = expression.split(" ", 3);
         firstNumber = Integer.parseInt(splitExpression[0]);
