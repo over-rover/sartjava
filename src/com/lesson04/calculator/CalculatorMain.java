@@ -20,7 +20,7 @@ public class CalculatorMain {
 
         do {
             System.out.println("Введите выражение вида: a + b Допускаются операции +, -, *, /, ^, %");
-            myCalc.setData(sc.nextLine());
+            myCalc.setExpression(sc.nextLine());
             myCalc.calculate(); // вычисляем результат, записываем его в массив
 
             System.out.println("Хотите продолжить? [да/нет]: ");
@@ -30,12 +30,11 @@ public class CalculatorMain {
                 System.out.println("!!!Ошибка при вводе!!! Попробуйте еще раз [да/нет]: ");
                 choice = sc.nextLine();
             }
-
         } while (choice.equals("да"));
 
         System.out.println("Значения математических выражений:");
         for (int i = 0; i < expressionMaxNumber; i++) {
-            System.out.print(myCalc.showResult(i) + " ");
+            System.out.print(myCalc.getResult(i) + " ");
         }
         System.out.println("\nПрограмма окончена.");
     }
