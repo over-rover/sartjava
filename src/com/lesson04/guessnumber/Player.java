@@ -4,7 +4,7 @@ import java.util.Arrays;
 public class Player {
 	private String name; // имя игрока
 	private int[] numbers; // массив чисел
-	private int[] numbersCopy; // усеченный массив чисел
+    private int attemptIndex = -1; // количество попыток (она же индекс массива чисел)
 
 	Player(String name, int maxAttempt) {
 		this.name = name;
@@ -15,24 +15,24 @@ public class Player {
 		return name;
 	}
 
-	public void setNumber(int number, int attemptIndex) {
-		this.numbers[attemptIndex] = number;
+	public void setNumber(int number) {
+		attemptIndex++;
+		numbers[attemptIndex] = number;
 	}
 
 	public int getNumber(int attemptIndex) {
 		return numbers[attemptIndex];
 	}
-
-	public void setNumbersCopy(int dim) {
-		numbersCopy = Arrays.copyOf(numbers, dim);
+	public int[] getNumbers() {
+		return numbers;
+	}
+	public int getAttemptIndex() {
+		return attemptIndex;
 	}
 
-	public int[] getNumbersCopy() {
-		return numbersCopy;
-	}
-
-	public void clearArrays() {
-		Arrays.fill(numbers, 0, numbersCopy.length-1, 0);
-		Arrays.fill(numbersCopy,0);
+	public void clear() {
+		Arrays.fill(numbers, 0, attemptIndex + 1, 0);
+		System.out.println(Arrays.toString(numbers));
+		attemptIndex = -1;
 	}
 }

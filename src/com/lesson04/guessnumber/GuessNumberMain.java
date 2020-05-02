@@ -5,11 +5,7 @@ package com.lesson04.guessnumber;
 По окончанию игры отобразите в две строки через пробел, все названные игроками числа (в первой строке -
 варианты первого игрока, во второй - второго).
 Если массив полностью не заполнен, т.е. пользователь угадал число менее чем за 10 попыток, то выводить
-весь массив не нужно. Возможны три варианта:
-1) победитель отсутствует. Все игроки использовали одинаковое (максимальное) число попыток.
-2) победителем является последний игрок - значит все игроки использовали одинаковое число попыток.
-3) победителем является не последний игрок - значит игроки использовали разное число попыток. В этом случае
-массивы истории будут разных размеров.
+весь массив не нужно.
 В конце игры выведите сообщение "Игрок " + имя + " угадал число " + число + " с " + номер + " попытки"
 Если игроки не угадали число за 10 попыток, то отобразите сообщение: "У " + имя + " закончились попытки"
 Создайте дополнительное поле в классе Player, которое будет хранить введенные пользователем числа.
@@ -26,35 +22,32 @@ public class GuessNumberMain {
         int totalPlayers = 2; // Количество игроков
         int maxAttempt = 5; // Максимальное число попыток
 
-        Player[] players = new Player[totalPlayers]; // создаем массив объектов типа Player
+        Player[] players = new Player[totalPlayers];
         Scanner sc = new Scanner(System.in);
-        // передаем объекту-игроку имя (с консоли) и максимальное число попыток
+
         for (int i = 0; i < totalPlayers; i++) {
             System.out.print("Введите имя игрока №" + (i + 1) +": ");
             players[i] = new Player(sc.next(), maxAttempt);
         }
 
         // Процесс игры
+        GuessNumber game = new GuessNumber(rangeBegin, rangeEnd, players, maxAttempt);
         System.out.println("Отгадайте число за " + maxAttempt + " попыток");
         char choice = 'y'; // желание продолжить игру [y/n]
-        int pl; // указатель игрока (он же индексом в массиве players[])
-
+        int plIndex; // указатель игрока (он же индекс в массиве players[])
         do {
-            // Загадываем случайное число в заданном отрезке
-            GuessNumber game = new GuessNumber(rangeBegin, rangeEnd);
-            game.playGame(players, maxAttempt);
-
+            game.playGame();
             System.out.println("Уважаемые игроки, можно повторить игру... хотите? [y/n]");
             // Проверяем желание каждого игрока повторить игру. При первом же отрицательном ответе завершаем программу.
-            pl = 0;
-            while (choice == 'y' && pl < totalPlayers) {
-                System.out.print(players[pl].getName() + "?\t");
+            plIndex = 0;
+            while (choice == 'y' && plIndex < totalPlayers) {
+                System.out.print(players[plIndex].getName() + "?\t");
                 choice = sc.next().charAt(0);
                 while (choice != 'y' && choice != 'n') {
-                    System.out.println(players[pl].getName() + " !!!Ошибка!!! Используйте [y/n]: ");
+                    System.out.println(players[plIndex].getName() + " !!!Ошибка!!! Используйте [y/n]: ");
                     choice = sc.next().charAt(0);
                 }
-                pl++;
+                plIndex++;
             }
         } while (choice == 'y');
 
