@@ -31,11 +31,11 @@ public class GuessNumberMain {
         }
 
         // Процесс игры
-        GuessNumber game = new GuessNumber(rangeBegin, rangeEnd, players, maxAttempt);
-        System.out.println("Отгадайте число за " + maxAttempt + " попыток");
+        GuessNumber game = new GuessNumber(rangeBegin, rangeEnd, players, maxAttempt); // вынес из цикла для экономии ресурсов
         char choice = 'y'; // желание продолжить игру [y/n]
         int plIndex; // указатель игрока (он же индекс в массиве players[])
         do {
+            game.generateNumber();
             game.playGame();
             System.out.println("Уважаемые игроки, можно повторить игру... хотите? [y/n]");
             // Проверяем желание каждого игрока повторить игру. При первом же отрицательном ответе завершаем программу.
