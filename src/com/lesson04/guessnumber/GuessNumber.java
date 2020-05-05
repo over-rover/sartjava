@@ -23,11 +23,11 @@ public class GuessNumber {
      */
     public void playGame() {
         generateNumber();
-        exitlabel:
+        exitLabel:
         do {
             do {
                 inputNumber();
-                if (checkNumber()) break exitlabel;
+                if (checkNumber()) break exitLabel;
                 plIndex++;
             } while (plIndex < players.length);
             plIndex = 0;
