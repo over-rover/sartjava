@@ -4,7 +4,7 @@ import java.util.Arrays;
 public class Player {
 	private String name; // имя игрока
 	private int[] numbers; // массив чисел
-    private int attemptIndex = -1; // счетчик попыток (используется для индексации массива чисел)
+	private int attemptIndex = -1; // счетчик попыток (используется для индексации массива чисел)
 
 	Player(String name, int maxAttempt) {
 		this.name = name;
